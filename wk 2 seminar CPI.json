@@ -1,0 +1,14 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/KartikeeE/KartikeeE.github.io/refs/heads/main/us_inflation_data.csv"
+  },
+  "title": {"text": "US Inflation", "color": "black"},
+  "mark": {"type": "line", "color": "#7acc6a"},
+  "encoding": {
+    "x": {"field": "date", "type": "temporal"},
+    "axis": {"title": "", "grid": false},
+    "y": {"field": "vaue", "type": "quantitative"}
+  },
+  "config": {}
+}
