@@ -68,24 +68,25 @@
         <figure id="Location2"></figure> 
         <figure id="Location3"></figure> 
         <figure id="Location4"></figure> 
-       
 
-
-
-    </section>
-
-  <section>
+</section>
+<section>
         <div class="chart-description">
             <h2>Section 2: Week 2</h2>
-            <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
                 This is Inflation in the US chart taken from Fred, we added this chart in Seminar 2 on the 10th of October, 2025, Wednesday. 
             </p>
         </div>
         <figure id="Location5"></figure> 
 
-
-
     </section>
+        <div class="chart-description">
+            <h2>Section 3: Week 3 Seminar</h2>
+                This is a continutation of Lecture 3, working in Collab Notebook, creating charts. 
+            </p>
+        </div>
+        <figure id="Location6"></figure> 
+    </section>
+
 
     <!-- Do you want to add more sections? -->
         <!-- Try copying pasting the section above -->
@@ -104,6 +105,7 @@
         let figure_3_spec = "wk1_chart2.json";
         let figure_4_spec = "fig2_uk-exports-to-us.json";
         let figure_5_spec = "wk 2 seminar CPI.json"
+        let figure_6_spec = "wk3-seminar-PEratio_chart.json"
 
 
         vegaEmbed('#Location1', figure_1_spec) // We're using the vegaEmbed function to put a graph in the element with id figure_1
@@ -111,6 +113,9 @@
         vegaEmbed('#Location3', figure_3_spec)
         vegaEmbed('#Location4', figure_4_spec)
         vegaEmbed('#Location5', figure_5_spec)
+        vegaEmbed('#Location6', figure_6_spec)
+
+
 
 
 
