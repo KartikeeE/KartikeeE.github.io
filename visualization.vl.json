@@ -1,0 +1,13 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "description": "Google's stock price over time.",
+  "data": {
+    "url": "https://raw.githubusercontent.com/KartikeeE/KartikeeE.github.io/refs/heads/main/UNRATE.csv"
+  },
+  "mark": "line",
+  "encoding": {
+    "x": {"field": "date", "type": "temporal"},
+    "y": {"field": "value", "type": "quantitative"}
+  },
+  "config": {}
+}

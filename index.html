@@ -42,13 +42,13 @@
 
 <body> 
 <!-- The body tag contains the elements that visitors to our page will see. -->
-    <h1 class="big" style="margin-bottom: 0px;"> <!-- We have added a class to the header called "big" which we can use to style it in the CSS -->
+    <h1 class="big" style="margin-bottom: 0px;color: rgb(6, 138, 215)"> <!-- We have added a class to the header called "big" which we can use to style it in the CSS -->
         <!-- This is a header, it is the largest text on the page -->
         Kartikee Elkunchwar
     </h1>
-    <p style="margin-top: 0px; color: darkblue">
+    <p style="margin-top: 0px; color: rgb(6, 138, 215)">
         <!-- we're setting the margin to 0px so the header and authour name are close together -->
-        Kartikee Elkunchwar | <a href="https://www.linkedin.com/in/kartikee-elkunchwar/">LinkedIn</a> | <a
+        Kartikee Elkunchwar |  <a href="https://www.linkedin.com/in/kartikee-elkunchwar/"> LinkedIn</a> | <a
             href="https://github.com/KartikeeE">GitHub</a>
     </p>
     <h3 class="small"> <!-- We have added a class to the header called "small" which we can use to style it in the CSS -->
@@ -58,34 +58,55 @@
     <!-- We're organising the page into sections, with each section containing a chart, title and a description -->
     <section>
         <div class="chart-description">
-            <h2>Section 1: A basic chart</h2>
+            <h2>Section 1: Week 1 - Basic Charts Coding Challenge</h2>
+            
+            This is a chat about the changes in the Bank of England's rates. This has been added as a portfolio task for Week 1. 
             <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
-                We've organised the page into sections, with each section containing a chart, title and a description. Here, we can describe the chart and give some context.
-                As a first example, we're using a basic chart from our repo.
             </p>
         </div>
+
         <figure id="Location1"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
-        <figure id="Location2"></figure> 
-        <figure id="Location3"></figure> 
-        <figure id="Location4"></figure> 
+         <p style="color: black; font-weight: 400; font-size:large;"
+        <p>  The following is tracking the tax rate on sugar products and how it changes according to the amount of sugar in the products. It is Chart Number 2 of the portfolio tasks from Week 1.</p>
+      
+         <figure id="Location2"></figure> 
+       
+      
+
 
 </section>
 <section>
         <div class="chart-description">
-            <h2>Section 2: Week 2</h2>
-                This is Inflation in the US chart taken from Fred, we added this chart in Seminar 2 on the 10th of October, 2025, Wednesday. 
+            <h2>Section 2: Coding Challenge 2</h2>
+           <p style="color: black; font-weight: 400;font-size:large;"
+            <p> The following chart depicts the rate of unemployment in India from 1992 to 2022. The chart was created on the Economics Observatory website, using the create option.
             </p>
+            <figure id="Location3"></figure> 
+
         </div>
-        <figure id="Location5"></figure> 
-        <!-- <figure id="Location5" style="min-width: 400px; width: 90%"></figure>  -->
+
+        <!-- <figure id="Location3" style="min-width: 400px; width: 90%"></figure>  -->
+
+ <p style="color: black; font-weight: 400;font-size:large;"
+            <p> This is a chart showing the number of phone subscribers in India in millions over the years, from 2009 to 2021. 
+            </p>
+            <figure id="Location4"></figure> 
 
     </section>
+
+    <section>
         <div class="chart-description">
-            <h2>Section 3: Week 3 Seminar</h2>
-                This is a continutation of Lecture 3, working in Collab Notebook, creating charts. 
+            <h2>Section 3: </h2>
+            <p style="color: black; font-weight: 400;font-size:large;"
+            <p>  Coding Challenge 3: Produce two charts that support or refute (or are related to in some way)
+to a topic of policy debate.
+            </p>
+
+            
+                 
             </p>
         </div>
-        <figure id="Location6"></figure> 
+       
     </section>
 
 
@@ -99,22 +120,20 @@
     <script>
         // This is a comment in JavaScript - it's a different language to HTML and CSS
 
-        let figure_1_spec = "https://raw.githubusercontent.com/EconomicsObservatory/courses/main/2/s2_chart2.json"; // We're storing the URL of the graph we want to display in a variable
+        let figure_1_spec = "Bank of England rates.json"; // We're storing the URL of the graph we want to display in a variable
         // let figure_2_spec = "../fig1_reciprocal-tariffs.json"                                                                                                          // You should have a spec for a graph in this same folder. Just specify its name here, e.g. let figure_1_spec = "chart1.json"
         // let figure_3_spec = "charts/wk1_chart1.json";
-        let figure_2_spec = "wk1_chart1.json";
-        let figure_3_spec = "wk1_chart2.json";
-        let figure_4_spec = "fig2_uk-exports-to-us.json";
-        let figure_5_spec = "wk2_chart1 redone in wk3.json"
-        let figure_6_spec = "wk3-seminar-PEratio_chart.json"
+        let figure_2_spec = "sugr tax bigger.json";
+        let figure_3_spec = "Unemployment rate IND.json"
+        let figure_4_spec = "phone subscribers IND.json"
+
 
 
         vegaEmbed('#Location1', figure_1_spec) // We're using the vegaEmbed function to put a graph in the element with id figure_1
         vegaEmbed('#Location2', figure_2_spec)
         vegaEmbed('#Location3', figure_3_spec)
         vegaEmbed('#Location4', figure_4_spec)
-        vegaEmbed('#Location5', figure_5_spec)
-        vegaEmbed('#Location6', figure_6_spec)
+
 
 
 

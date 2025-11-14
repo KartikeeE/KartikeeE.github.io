@@ -5,10 +5,20 @@
   },
   "title": {"text": "US Inflation", "color": "black"},
   "mark": {"type": "line", "color": "#7acc6a"},
+  "width" :500 , "height":300,
   "encoding": {
-    "x": {"field": "date", "type": "temporal"},
-    "axis": {"title": "", "grid": false},
-    "y": {"field": "value", "type": "quantitative"}
-  },
-  "config": {}
+    "x": {
+      "field": "date",
+      "type": "temporal",
+      "axis": {
+        "title": "",
+        "grid": false
+      }
+    },
+    "y": {
+      "field": "value",
+      "type": "quantitative"
+    }
+  }
+
 }
