@@ -1,0 +1,47 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "title": {
+    "text": "India's GDP Growth (1970-2023)",
+    "fontSize": 16,
+    "anchor": "start"
+  },
+  "description": "India's GDP over time in trillions.",
+  "data": {
+    "url": "https://raw.githubusercontent.com/KartikeeE/KartikeeE.github.io/refs/heads/main/values_trillions_by_year.csv"
+  },
+  "width": 600,
+  "height": 400,
+  "mark": {
+    "type": "line",
+    "point": {"filled": true, "fill": "#b24ac4", "size": 20},
+    "interpolate": "step",
+    "color": "#0da6c5"
+  },
+  "encoding": {
+    "x": {
+      "field": "Year",
+      "type": "temporal",
+      "title": "Year",
+      "axis": {"grid": false}
+    },
+    "y": {
+      "field": "GDP_Trillions",
+      "type": "quantitative",
+      "title": "GDP (Trillions USD)",
+      "axis": {"grid": false}
+    },
+    "tooltip": [
+      {"field": "Year", "type": "temporal", "title": "Year"},
+      {
+        "field": "GDP_Trillions",
+        "type": "quantitative",
+        "title": "GDP (Trillions USD)",
+        "format": ".2f"
+      }
+    ]
+  },
+  "config": {
+    "view": {"strokeWidth": 0},
+    "axis": {"labelFontSize": 12, "titleFontSize": 13}
+  }
+}

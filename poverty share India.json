@@ -1,0 +1,24 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "title": {
+    "text": "Share of population living in extreme poverty ",
+    "fontSize": 14,
+    "anchor": "start",
+    "subtitle": "Source: Our World in Data"
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/KartikeeE/KartikeeE.github.io/refs/heads/main/share-of-population-living-in-extreme-poverty.csv"
+  },
+  "width": 500,
+  "height": 300,
+  "mark": {"type": "line"},
+  "encoding": {
+    "x": {"field": "Year", "type": "temporal", "axis": {"grid": false}},
+    "y": {
+      "field": "Share below $3 a day",
+      "type": "quantitative",
+      "axis": {"grid": false}
+    }
+  },
+  "config": {}
+}
