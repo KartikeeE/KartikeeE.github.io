@@ -61,7 +61,7 @@
     <!-- We're organising the page into sections, with each section containing a chart, title and a description -->
     <section>
         <div class="chart-description">
-            <h2>Section 1: Week 1 - Basic Charts Coding Challenge</h2>
+            <h2>Week 1 - Basic Charts Coding Challenge</h2>
         
             <p style="color: black; font-weight: 400;font-size:larger;"
             <p>This is a chart about the changes in the Bank of England's rates. This has been added as a portfolio task for Week 1.</p> 
@@ -81,7 +81,7 @@
 </section>
 <section>
         <div class="chart-description">
-            <h2>Section 2: Coding Challenge 2</h2>
+            <h2>Coding Challenge 2</h2>
            <p style="color: black; font-weight: 400;font-size:larger;"
             <p> The following chart depicts the rate of unemployment in India from 1992 to 2022. The chart was created on the Economics Observatory website, using the create option.
             </p>
@@ -100,26 +100,39 @@
 
     <section>
         <div class="chart-description">
-            <h2>Section 3: Coding Challenge 3</h2>
+            <h2>Coding Challenge 3</h2>
             <p style="color: black; font-weight: 400;font-size:large;"
-            <p> Produce two charts that support or refute (or are related to in some way)
-to a topic of policy debate.
+            <p> 
             </p>
-  <p style="color: black; font-weight: 400;font-size:larger;"
-
-    <p> The following charts are evidence for the supporting the of focusing on increasing GDP per capita of a country to reduce poverty. As India's GDP per capita rose, the share of percentage of the population living on 3$ per day fell. 
-</p>
             
+    <p> <p style="color: black; font-weight:400;font-size:larger;">
+        The following charts are evidence for the supporting the of focusing on increasing GDP per capita of a country to reduce poverty. As India's GDP per capita rose, the share of percentage of the population living on 3$ per day fell. 
+</p>
         <figure id="Location5"></figure> 
 
         <figure id="Location6"></figure> 
-
-
-                 
+       
             </p>
         </div>
        
     </section>
+
+    <section>
+<h2>Coding Challenge 4: Replication.</h2>
+            <p style="color: black; font-weight: 400;font-size:larger;">
+            The image below is one of the used as a <a href="https://data.europa.eu/apps/data-visualisation-guide/guidelines-for-pie-charts">guide to making pie charts </a> on The official <a href="https://data.europa.eu/apps/data-visualisation-guide/">Data Visualisation Guide</a> of the European Union.
+                The pie chart shows the statewise population of the United States in 2008-2009. As clearly seen, it is not an ideal representation of data. There are too many slices, too many colours used, which makings it a bit jarring to look at. 
+                
+            </p>     
+                <img src="Pie_chart_of_US_population_by_state.png" width="500" alt="EU Data Visualisation Guide" style="max-width: 100%; height: auto;">
+          
+         <p style="color: black; font-weight: 400;font-size:larger;">
+         A better way to present the data would be in a bar chart, with a scale to categorise the population. </p>
+
+        <figure id="Location7"></figure> 
+
+
+
 
 
     <!-- Do you want to add more sections? -->
@@ -140,6 +153,8 @@ to a topic of policy debate.
         let figure_4_spec = "phone subscribers IND.json"
         let figure_5_spec = "IndiaGDP-trillions.json"
         let figure_6_spec = "poverty share India.json"
+        let figure_7_spec = "CC4 replicated chart.json"
+
 
 
 
@@ -149,6 +164,7 @@ to a topic of policy debate.
         vegaEmbed('#Location4', figure_4_spec)
         vegaEmbed('#Location5', figure_5_spec)
         vegaEmbed('#Location6', figure_6_spec)
+        vegaEmbed('#Location7', figure_7_spec)
 
 
 

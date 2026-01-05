@@ -1,0 +1,180 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "title": {
+    "text": "US State Populations by Size Category",
+    "fontSize": 16,
+    "anchor": "start"
+  },
+  "width": 600,
+  "height": 700,
+  "data": {
+    "values": [
+      {
+        "state": "California",
+        "population": 37000000,
+        "category": "Very Large (20M+)"
+      },
+      {
+        "state": "Texas",
+        "population": 24000000,
+        "category": "Very Large (20M+)"
+      },
+      {
+        "state": "New York",
+        "population": 19000000,
+        "category": "Large (10-20M)"
+      },
+      {
+        "state": "Florida",
+        "population": 18000000,
+        "category": "Large (10-20M)"
+      },
+      {
+        "state": "Illinois",
+        "population": 13000000,
+        "category": "Large (10-20M)"
+      },
+      {
+        "state": "Pennsylvania",
+        "population": 12000000,
+        "category": "Large (10-20M)"
+      },
+      {"state": "Ohio", "population": 12000000, "category": "Large (10-20M)"},
+      {
+        "state": "Michigan",
+        "population": 10000000,
+        "category": "Medium (5-10M)"
+      },
+      {"state": "Georgia", "population": 9600000, "category": "Medium (5-10M)"},
+      {
+        "state": "North Carolina",
+        "population": 9500000,
+        "category": "Medium (5-10M)"
+      },
+      {
+        "state": "New Jersey",
+        "population": 8700000,
+        "category": "Medium (5-10M)"
+      },
+      {
+        "state": "Virginia",
+        "population": 7800000,
+        "category": "Medium (5-10M)"
+      },
+      {
+        "state": "Washington",
+        "population": 6500000,
+        "category": "Medium (5-10M)"
+      },
+      {
+        "state": "Massachusetts",
+        "population": 6500000,
+        "category": "Medium (5-10M)"
+      },
+      {"state": "Arizona", "population": 6400000, "category": "Medium (5-10M)"},
+      {"state": "Indiana", "population": 6400000, "category": "Medium (5-10M)"},
+      {
+        "state": "Tennessee",
+        "population": 6200000,
+        "category": "Medium (5-10M)"
+      },
+      {
+        "state": "Missouri",
+        "population": 5900000,
+        "category": "Medium (5-10M)"
+      },
+      {
+        "state": "Maryland",
+        "population": 5700000,
+        "category": "Medium (5-10M)"
+      },
+      {
+        "state": "Wisconsin",
+        "population": 5600000,
+        "category": "Medium (5-10M)"
+      },
+      {
+        "state": "Minnesota",
+        "population": 5200000,
+        "category": "Medium (5-10M)"
+      },
+      {"state": "Colorado", "population": 4900000, "category": "Small (<5M)"},
+      {"state": "Alabama", "population": 4600000, "category": "Small (<5M)"},
+      {
+        "state": "South Carolina",
+        "population": 4400000,
+        "category": "Small (<5M)"
+      },
+      {"state": "Louisiana", "population": 4300000, "category": "Small (<5M)"},
+      {"state": "Kentucky", "population": 4300000, "category": "Small (<5M)"},
+      {
+        "state": "Puerto Rico",
+        "population": 4000000,
+        "category": "Small (<5M)"
+      },
+      {"state": "Oregon", "population": 3800000, "category": "Small (<5M)"},
+      {"state": "Oklahoma", "population": 3600000, "category": "Small (<5M)"},
+      {
+        "state": "Connecticut",
+        "population": 3500000,
+        "category": "Small (<5M)"
+      },
+      {"state": "Iowa", "population": 3000000, "category": "Small (<5M)"},
+      {
+        "state": "Mississippi",
+        "population": 3000000,
+        "category": "Small (<5M)"
+      },
+      {"state": "Arkansas", "population": 3000000, "category": "Small (<5M)"},
+      {"state": "Kansas", "population": 3000000, "category": "Small (<5M)"},
+      {"state": "Utah", "population": 2700000, "category": "Small (<5M)"},
+      {"state": "Nevada", "population": 2600000, "category": "Small (<5M)"},
+      {"state": "New Mexico", "population": 2000000, "category": "Small (<5M)"}
+    ]
+  },
+  "mark": {"type": "bar"},
+  "encoding": {
+    "y": {
+      "field": "state",
+      "type": "nominal",
+      "sort": "-x",
+      "title": "State",
+      "axis": {"labelLimit": 150}
+    },
+    "x": {
+      "field": "population",
+      "type": "quantitative",
+      "title": "Population",
+      "axis": {"format": ",.0f", "grid": false}
+    },
+    "color": {
+      "field": "category",
+      "type": "nominal",
+      "title": "Population Category",
+      "scale": {
+        "domain": [
+          "Very Large (20M+)",
+          "Large (10-20M)",
+          "Medium (5-10M)",
+          "Small (<5M)"
+        ],
+        "range": ["#e74c3c", "#f39c12", "#3498db", "#95a5a6"]
+      },
+      "legend": {"orient": "top"}
+    },
+    "tooltip": [
+      {"field": "state", "type": "nominal", "title": "State"},
+      {
+        "field": "population",
+        "type": "quantitative",
+        "title": "Population",
+        "format": ","
+      },
+      {"field": "category", "type": "nominal", "title": "Category"}
+    ]
+  },
+  "config": {
+    "view": {"strokeWidth": 0},
+    "axis": {"labelFontSize": 11, "titleFontSize": 13}
+  }
+}
