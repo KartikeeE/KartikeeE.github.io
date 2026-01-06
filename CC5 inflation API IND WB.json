@@ -1,0 +1,35 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.2.0.json",
+  "data": {
+    "url": "https://api.worldbank.org/v2/country/IND/indicator/FP.CPI.TOTL.ZG?format=json",
+    "format": {"type": "json", "property": "1"}
+  },
+  "width": 500,
+  "height": 300,
+  "transform": [
+    {"filter": "datum.value != null"},
+    {"calculate": "toDate(datum.date + '-01-01')", "as": "year"}
+  ],
+  "mark": {
+    "type": "line",
+    "color": "red",
+    "point": {"filled": true, "color": "black", "size": 30}
+  },
+  "encoding": {
+    "x": {"field": "year", "type": "temporal", "title": "Year"},
+    "y": {
+      "field": "value",
+      "type": "quantitative",
+      "title": "Inflation (annual %)"
+    },
+    "tooltip": [
+      {"field": "date", "type": "nominal", "title": "Year"},
+      {"field": "value", "type": "quantitative", "title": "Inflation (%)"}
+    ]
+  },
+  "title": {
+    "text": "Inflation in India",
+    "subtitle": "Consumer prices, annual % (World Bank API – live)"
+  },
+  "config": {}
+}
