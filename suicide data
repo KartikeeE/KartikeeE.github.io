@@ -1,0 +1,63 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  
+  "title": {
+    "text": "Suicide Mortality Rate by Country (2019)",
+    "fontSize": 16,
+    "anchor": "start"
+  },
+  
+  "width": 600,
+  "height": 500,
+  
+  "data": {
+    "url": "https://ghoapi.azureedge.net/api/SDGSUICIDE",
+    "format": {
+      "type": "json",
+      "property": "value"
+    }
+  },
+  
+  "transform": [
+    {"filter": "datum.TimeDim == 2019"},
+    {"filter": "datum.Dim1 == 'BTSX'"},
+    {
+      "window": [{"op": "rank", "as": "rank"}],
+      "sort": [{"field": "NumericValue", "order": "descending"}]
+    },
+    {"filter": "datum.rank <= 15"}
+  ],
+  
+  "mark": {
+    "type": "bar",
+    "color": "#e74c3c"
+  },
+  
+  "encoding": {
+    "y": {
+      "field": "SpatialDim",
+      "type": "nominal",
+      "title": "Country",
+      "sort": "-x",
+      "axis": {"labelLimit": 150}
+    },
+    "x": {
+      "field": "NumericValue",
+      "type": "quantitative",
+      "title": "Suicide Rate (per 100,000 population)",
+      "axis": {
+        "format": ".1f",
+        "grid": false
+      }
+    },
+    "tooltip": [
+      {"field": "SpatialDim", "type": "nominal", "title": "Country Code"},
+      {"field": "NumericValue", "type": "quantitative", "title": "Rate per 100,000", "format": ".1f"},
+      {"field": "TimeDim", "type": "quantitative", "title": "Year"}
+    ]
+  },
+  
+  "config": {
+    "view": {"strokeWidth": 0}
+  }
+}

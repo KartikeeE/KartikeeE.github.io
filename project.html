@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Project | PP434</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 1100px; margin: 30px auto; padding: 0 20px; line-height: 1.5; }
+    h1 { margin: 0 0 10px 0; }
+    .nav { margin-bottom: 18px; }
+    .nav a { margin-right: 14px; }
+    .meta { color: #444; margin: 0 0 22px 0; }
+    h2 { margin-top: 26px; }
+    figure { margin: 14px 0 28px 0; }
+  </style>
+</head>
+
+<body>
+  <div class="nav">
+    <a href="index.html">Home</a>
+    <a href="portfolio.html">Portfolio</a>
+  </div>
+
+  <h1>Inflation and Cost of Living: India in International Context</h1>
+  <p class="meta">PP434 Final Project — 5–8 visualisations (≤800 words)</p>
+
+  <h2>Aims</h2>
+  <p>
+    This project examines how inflation has evolved in India compared with selected peer economies and what this implies for cost-of-living pressures and inflation volatility.
+  </p>
+
+  <h2>Data</h2>
+  <p>
+    Data are retrieved via the World Bank Indicators API using country codes and indicator codes. This approach supports replication and enables updates when the underlying source is refreshed.
+  </p>
+
+  <h2>Tools and Analytical Challenges</h2>
+  <p>
+    Charts are built in Vega-Lite and embedded using vegaEmbed. The workflow handles missing values through filtering and uses consistent transformations so time-series can be compared across countries.
+  </p>
+
+  <h2>Visualisations</h2>
+  <figure id="P1"></figure>
+  <figure id="P2"></figure>
+  <figure id="P3"></figure>
+  <figure id="P4"></figure>
+  <figure id="P5"></figure>
+
+  <h2>Conclusions</h2>
+  <p>
+    Comparative evidence suggests inflation dynamics differ across economies in both level and volatility, motivating further work on drivers such as food prices, energy shocks, and exchange-rate pass-through.
+  </p>
+
+  <script>
+    // Add your project charts here once the JSON files exist in the repo root.
+    // Example:
+    // vegaEmbed("#P1", "project_chart_1.json", { actions: false });
+    // vegaEmbed("#P2", "project_chart_2.json", { actions: false });
+  </script>
+</body>
+</html>
