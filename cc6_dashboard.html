@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>CC6 Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  <style>
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      max-width: 900px;
+    }
+    .card {
+      border: 1px solid #ddd;
+      padding: 10px;
+    }
+    .title {
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      margin: 0 0 6px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>India: Six macro time series</h2>
+
+  <div id="cc6Grid" class="grid"></div>
+
+  <script>
+    const base = "https://raw.githubusercontent.com/KartikeeE/KartikeeE.github.io/main/data/cc6/";
+
+    const series = [
+      { file: "ind_infl.json", label: "Inflation (CPI, %)" },
+      { file: "ind_unem.json", label: "Unemployment (% of labour force)" },
+      { file: "ind_grow.json", label: "GDP growth (annual %)" },
+      { file: "ind_gdpp.json", label: "GDP per capita (current US$)" },
+      { file: "ind_impo.json", label: "Imports of goods & services (current US$)" },
+      { file: "ind_expo.json", label: "Exports of goods & services (current US$)" }
+    ];
+
+    const baseSpecUrl = "cc6_chart.json";
+
+    for (let i = 0; i < series.length; i++) {
+      const wrap = document.createElement("div");
+      wrap.className = "card";
+
+      const t = document.createElement("div");
+      t.className = "title";
+      t.textContent = series[i].label;
+
+      const holder = document.createElement("div");
+      holder.id = "chart_" + i;
+
+      wrap.appendChild(t);
+      wrap.appendChild(holder);
+
+      document.getElementById("cc6Grid").appendChild(wrap);
+
+      vegaEmbed("#" + holder.id, baseSpecUrl).then(res => {
+        res.view.change(
+          "source_0",
+          vega
+            .changeset()
+            .remove(() => true)
+            .insertFromUrl(base + series[i].file)
+        );
+      });
+    }
+  </script>
+
+</body>
+</html>
