@@ -1,22 +1,41 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Scotland",
+  "title": "Scotland: Bikehangars Locations",
   "width": 300,
   "height": 400,
-  "data": {
-    "url": "https://raw.githubusercontent.com/jhellingsdata/RADataHub/refs/heads/main/MappingWorkshop/geo_data/scotland.topojson",
-    "format": { "type": "topojson", "feature": "data" }
-  },
-  "mark": {
-    "type": "geoshape",
-    "fill": "lightblue",
-    "stroke": "white",
-    "strokeWidth": 1
-  },
   "projection": {
     "type": "mercator",
     "scale": 2000,
     "center": [-4, 57],
     "translate": [150, 200]
-  }
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/jhellingsdata/RADataHub/refs/heads/main/MappingWorkshop/geo_data/scotland.topojson",
+        "format": { "type": "topojson", "feature": "data" }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "lightblue",
+        "stroke": "white",
+        "strokeWidth": 1
+      }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/KartikeeE/KartikeeE.github.io/main/data/cc7/CC7_Scotland_bikehangers.csv"
+      },
+      "mark": { "type": "circle", "opacity": 0.7, "size": 40 },
+      "encoding": {
+        "longitude": { "field": "Longitude", "type": "quantitative" },
+        "latitude": { "field": "Latitude", "type": "quantitative" },
+        "tooltip": [
+          { "field": "Building Name/No_/Location", "type": "nominal" },
+          { "field": "Council Ward", "type": "nominal" },
+          { "field": "Post Code", "type": "nominal" }
+        ]
+      }
+    }
+  ]
 }
