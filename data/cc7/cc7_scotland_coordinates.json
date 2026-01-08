@@ -1,20 +1,30 @@
 {
-  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 500,
   "height": 600,
-  "projection": {
-    "type": "mercator"
-  },
-  "data": {
-    "url": "https://raw.githubusercontent.com/RDeconomist/RDeconomist.github.io/main/data/geojson/scotland_local_authorities.geojson",
-    "format": {
-      "type": "geojson",
-      "feature": "features"
+  "projection": { "type": "mercator" },
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/RDeconomist/RDeconomist.github.io/main/data/geojson/scotland_local_authorities.geojson",
+        "format": { "type": "geojson", "feature": "features" }
+      },
+      "mark": { "type": "geoshape", "fill": "#e5e5e5", "stroke": "white" }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/KartikeeE/KartikeeE.github.io/main/data/cc7/CC7_Scotland_bikehangers.csv"
+      },
+      "mark": { "type": "circle", "opacity": 0.7 },
+      "encoding": {
+        "longitude": { "field": "Longitude", "type": "quantitative" },
+        "latitude": { "field": "Latitude", "type": "quantitative" },
+        "tooltip": [
+          { "field": "Building Name/No_/Location", "type": "nominal" },
+          { "field": "Council Ward", "type": "nominal" },
+          { "field": "Post Code", "type": "nominal" }
+        ]
+      }
     }
-  },
-  "mark": {
-    "type": "geoshape",
-    "fill": "#e5e5e5",
-    "stroke": "white"
-  }
+  ]
 }
