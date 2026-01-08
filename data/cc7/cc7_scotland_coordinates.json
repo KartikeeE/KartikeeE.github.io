@@ -1,13 +1,16 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Scotland: Bikehangars Locations",
-  "width": 300,
-  "height": 400,
+  "title": {
+    "text": "Secure Cycle Storage Locations (Veloboxes)",
+    "subtitle": "Scotland — coordinates map"
+  },
+  "width": 520,
+  "height": 650,
   "projection": {
     "type": "mercator",
-    "scale": 2000,
+    "scale": 3200,
     "center": [-4, 57],
-    "translate": [150, 200]
+    "translate": [260, 330]
   },
   "layer": [
     {
@@ -22,48 +25,83 @@
         "strokeWidth": 1
       }
     },
-   {
-  "data": {
-    "url": "https://raw.githubusercontent.com/KartikeeE/KartikeeE.github.io/main/data/cc7/CC7_veloboxes_Scotland.csv"
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/KartikeeE/KartikeeE.github.io/main/data/cc7/CC7_veloboxes_Scotland.csv"
+      },
+      "mark": {
+        "type": "circle",
+        "color": "#1f78b4",
+        "opacity": 0.75,
+        "size": 30,
+        "stroke": "white",
+        "strokeWidth": 0.5
+      },
+      "encoding": {
+        "longitude": { "field": "Longitude", "type": "quantitative" },
+        "latitude": { "field": "Latitude", "type": "quantitative" },
+        "tooltip": [
+          { "field": "Location", "type": "nominal" },
+          { "field": "City", "type": "nominal" },
+          { "field": "Postcode", "type": "nominal" }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          { "city": "Glasgow", "lat": 55.8642, "lon": -4.2518 },
+          { "city": "Edinburgh", "lat": 55.9533, "lon": -3.1883 },
+          { "city": "Aberdeen", "lat": 57.1497, "lon": -2.0943 },
+          { "city": "Dundee", "lat": 56.462, "lon": -2.9707 },
+          { "city": "Inverness", "lat": 57.4778, "lon": -4.2247 }
+        ]
+      },
+      "mark": {
+        "type": "circle",
+        "color": "#e6177e",
+        "size": 120,
+        "stroke": "white",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "longitude": { "field": "lon", "type": "quantitative" },
+        "latitude": { "field": "lat", "type": "quantitative" },
+        "tooltip": [{ "field": "city", "type": "nominal", "title": "City" }]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          { "city": "Glasgow", "lat": 55.8642, "lon": -4.2518 },
+          { "city": "Edinburgh", "lat": 55.9533, "lon": -3.1883 },
+          { "city": "Aberdeen", "lat": 57.1497, "lon": -2.0943 },
+          { "city": "Dundee", "lat": 56.462, "lon": -2.9707 },
+          { "city": "Inverness", "lat": 57.4778, "lon": -4.2247 }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "fontSize": 14,
+        "fontWeight": "bold",
+        "dy": -12
+      },
+      "encoding": {
+        "longitude": { "field": "lon", "type": "quantitative" },
+        "latitude": { "field": "lat", "type": "quantitative" },
+        "text": { "field": "city", "type": "nominal" }
+      }
+    }
+  ],
+  "config": {
+    "title": {
+      "subtitlePadding": 8
+    },
+    "view": {
+      "stroke": null
+    }
   },
-  "mark": { "type": "circle", "color":#17b2e6, "opacity": 0.7, "size": 40, "stroke": "white",
-  "strokeWidth": 0.5 },
-  "encoding": {
-    "longitude": { "field": "Longitude", "type": "quantitative" },
-    "latitude": { "field": "Latitude", "type": "quantitative" },
-    "tooltip": [
-      { "field": "Location", "type": "nominal" },
-      { "field": "City", "type": "nominal" },
-      { "field": "Postcode", "type": "nominal" }
-    ]
+  "usermeta": {
+    "caption": "Data from Open Data Scotland, for Grease Monkey Cycles"
   }
-{
-  "data": {
-    "values": [
-      { "city": "Glasgow", "lat": 55.8642, "lon": -4.2518 },
-      { "city": "Edinburgh", "lat": 55.9533, "lon": -3.1883 },
-      { "city": "Aberdeen", "lat": 57.1497, "lon": -2.0943 },
-      { "city": "Dundee", "lat": 56.4620, "lon": -2.9707 },
-      { "city": "Inverness", "lat": 57.4778, "lon": -4.2247 }
-    ]
-  },
-  "mark": {
-    "type": "text",
-    "fontSize": 11,
-    "fontWeight": "bold",
-    "dy": -8
-  },
-  "encoding": {
-    "longitude": { "field": "lon", "type": "quantitative" },
-    "latitude": { "field": "lat", "type": "quantitative" },
-    "text": { "field": "city", "type": "nominal" }
-  }
-}
-
-
-
-     
-}
-
-  ]
 }
