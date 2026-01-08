@@ -1,0 +1,32 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 800,
+  "height": 600,
+  "data": {
+    "url": "CC5_2_inflation_brics_plus_all_years.json"
+  },
+  "mark": { "type": "line", "point": true },
+  "encoding": {
+    "x": {
+      "field": "Year",
+      "type": "quantitative",
+      "title": "Year",
+      "axis": { "format": "d", "tickMinStep": 1 }
+    },
+    "y": {
+      "field": "Inflation",
+      "type": "quantitative",
+      "title": "Annual inflation rate (%)"
+    },
+    "color": {
+      "field": "Country",
+      "type": "nominal",
+      "legend": { "title": "Country" }
+    },
+    "tooltip": [
+      { "field": "Country", "type": "nominal" },
+      { "field": "Year", "type": "quantitative", "format": "d" },
+      { "field": "Inflation", "type": "quantitative" }
+    ]
+  }
+}
