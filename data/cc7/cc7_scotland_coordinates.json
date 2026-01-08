@@ -1,1 +1,20 @@
-{}
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "width": 500,
+  "height": 600,
+  "projection": {
+    "type": "mercator"
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/RDeconomist/RDeconomist.github.io/main/data/geojson/scotland_local_authorities.geojson",
+    "format": {
+      "type": "geojson",
+      "feature": "features"
+    }
+  },
+  "mark": {
+    "type": "geoshape",
+    "fill": "#e5e5e5",
+    "stroke": "white"
+  }
+}
