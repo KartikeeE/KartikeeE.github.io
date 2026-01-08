@@ -2,13 +2,13 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
     "text": "Secure Cycle Storage Locations (Veloboxes)",
-    "subtitle": "Scotland — coordinates map"
+    "subtitle": "Source: Open Data Scotland, for Grease Monkey Cycles"
   },
   "width": 520,
   "height": 650,
   "projection": {
     "type": "mercator",
-    "scale": 3200,
+    "scale": 5500,
     "center": [-4, 57],
     "translate": [260, 330]
   },
@@ -60,7 +60,7 @@
       "mark": {
         "type": "circle",
         "color": "#e6177e",
-        "size": 120,
+        "size": 70,
         "stroke": "white",
         "strokeWidth": 1
       },
