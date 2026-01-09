@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-  "title": "India: Life expectancy at birth (years) — slider filter",
+  "title": "India: Life expectancy at birth (years) from 1960 to 2024",
   "width": 600,
   "height": 400,
 
