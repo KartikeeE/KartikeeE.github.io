@@ -1,6 +1,9 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
   "title": "India: Life expectancy at birth (years) — slider filter",
+  "width": 600,
+  "height": 400,
+
   "data": {
     "url": "https://raw.githubusercontent.com/KartikeeE/KartikeeE.github.io/main/data/cc9/india_life_expectancy.json",
     "format": { "type": "json", "property": "1" }
