@@ -133,22 +133,28 @@ The data is scraped from the Wikipedia page on inflation rates by country. The d
 
 <section> 
   <h2>CC7: Maps</h2>
-  
    <p style="color: black; font-weight: 400;font-size:larger;">
 The below map indicates the locations of the Veloboxes in all of Scotland. The data was obtained from Open Data Scotland, and layered with a preexisitng map of Scotland. 
 </p>
     <figure id="Location9"></figure>
-
-
 <p style="color: black; font-weight: 400;font-size:larger;">
 The map below is a choropleth map of Wales, showing the population density of each of the counties. The data was obtained from the Office for National Statistics (ONS) and layered with a preexisting map of Wales. 
 </p>
-
     <figure id="Location10"></figure>
-
-
-
     </section>
+<section>
+    <h2>CC9: Interactive charts</h2>
+    <p style="color: black; font-weight: 400;font-size:larger;">
+
+    <div id="cc9_chart1"></div>    
+</section>
+
+
+
+
+
+
+
 <script>
   const figure_1_spec = "Bank of England rates.json";
   const figure_2_spec = "sugr tax bigger.json";
@@ -173,6 +179,10 @@ const cc7_wales_map_spec = "cc7_wales_population.json";
   vegaEmbed("#CC5_2_inflation_brics_plus_all_years", cc5_2_inflation_spec, { actions: false });
   vegaEmbed("#Location9", cc7_scotland_map_spec, { actions: false });
   vegaEmbed("#Location10", cc7_wales_map_spec, { actions: false });
+  vegaEmbed(
+  "#cc9_chart1",
+  "https://raw.githubusercontent.com/KartikeeE/KartikeeE.github.io/refs/heads/main/data/cc9/cc9_chart1_slider.json"
+);
 </script>
 
   
