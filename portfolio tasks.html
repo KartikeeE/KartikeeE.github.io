@@ -145,8 +145,11 @@ The map below is a choropleth map of Wales, showing the population density of ea
 <section>
     <h2>CC9: Interactive charts</h2>
     <p style="color: black; font-weight: 400;font-size:larger;">
-
-    <div id="cc9_chart1"></div>    
+Chart 1: Simple slider chart. </p>
+    <div id="cc9_chart1"></div> 
+     <p style="color: black; font-weight: 400;font-size:larger;">
+Chart 2: Chart with 3 Indicators on India: Life expectancy, GDP per capita, and Health Expenditure per capita. </p>
+    <div id="cc9_chart2"></div>  
 </section>
 
 
@@ -179,10 +182,9 @@ const cc7_wales_map_spec = "cc7_wales_population.json";
   vegaEmbed("#CC5_2_inflation_brics_plus_all_years", cc5_2_inflation_spec, { actions: false });
   vegaEmbed("#Location9", cc7_scotland_map_spec, { actions: false });
   vegaEmbed("#Location10", cc7_wales_map_spec, { actions: false });
-  vegaEmbed(
-  "#cc9_chart1",
-  "https://raw.githubusercontent.com/KartikeeE/KartikeeE.github.io/refs/heads/main/data/cc9/cc9_chart1_slider.json"
-);
+  vegaEmbed("#cc9_chart1","https://raw.githubusercontent.com/KartikeeE/KartikeeE.github.io/refs/heads/main/data/cc9/cc9_chart1_slider.json");
+  vegaEmbed("#cc9_chart2","https://raw.githubusercontent.com/KartikeeE/KartikeeE.github.io/main/data/cc9/cc9_chart2_dropdown.json?v=2");
+
 </script>
 
   
