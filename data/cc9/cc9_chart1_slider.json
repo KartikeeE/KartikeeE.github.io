@@ -1,1 +1,34 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "India: Life expectancy at birth (years) — slider filter",
+  "data": {
+    "url": "https://raw.githubusercontent.com/KartikeeE/KartikeeE.github.io/main/data/cc9/india_life_expectancy.json",
+    "format": { "type": "json", "property": "1" }
+  },
+  "transform": [
+    { "filter": "datum.value != null" },
+    { "calculate": "toNumber(datum.date)", "as": "year" }
+  ],
+  "params": [
+    {
+      "name": "minYear",
+      "value": 2000,
+      "bind": { "input": "range", "min": 1960, "max": 2024, "step": 1, "name": "Show years from: " }
+    }
+  ],
+  "transform": [
+    { "filter": "datum.value != null" },
+    { "calculate": "toNumber(datum.date)", "as": "year" },
+    { "filter": "datum.year >= minYear" }
+  ],
+  "mark": { "type": "line", "point": true },
+  "encoding": {
+    "x": { "field": "year", "type": "quantitative", "title": "Year" },
+    "y": { "field": "value", "type": "quantitative", "title": "Life expectancy (years)" },
+    "tooltip": [
+      { "field": "year", "type": "quantitative", "title": "Year" },
+      { "field": "value", "type": "quantitative", "title": "Life expectancy" }
+    ]
+  }
+}
 
