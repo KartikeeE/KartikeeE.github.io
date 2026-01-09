@@ -1,0 +1,61 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Wales: Population by Local Authority (2024)",
+    "subtitle": "Choropleth map"
+  },
+  "width": 520,
+  "height": 650,
+  "projection": { "type": "mercator" },
+
+  "data": {
+    "url": "https://raw.githubusercontent.com/jhellingsdata/RADataHub/refs/heads/main/MappingWorkshop/geo_data/LAD_WLS_2025_05.topojson",
+    "format": {
+      "type": "topojson",
+      "feature": "object_name"
+    }
+  },
+
+  "transform": [
+    {
+      "lookup": "properties.LAD21NM",
+      "from": {
+        "data": {
+          "url": "data/cc7/CC7_wales_population_2024.csv"
+        },
+        "key": "LAD21NM",
+        "fields": ["value"]
+      }
+    }
+  ],
+
+  "mark": {
+    "type": "geoshape",
+    "stroke": "white",
+    "strokeWidth": 0.8
+  },
+
+  "encoding": {
+    "color": {
+      "field": "value",
+      "type": "quantitative",
+      "legend": { "title": "Population" }
+    },
+    "tooltip": [
+      {
+        "field": "properties.LAD21NM",
+        "type": "nominal",
+        "title": "Local authority"
+      },
+      {
+        "field": "value",
+        "type": "quantitative",
+        "title": "Population (2024)"
+      }
+    ]
+  },
+
+  "config": {
+    "view": { "stroke": null }
+  }
+}

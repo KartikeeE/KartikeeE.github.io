@@ -1,0 +1,92 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "title": {
+    "text": "Secure Cycle Storage Locations (Veloboxes)",
+    "subtitle": "Source: Open Data Scotland, for Grease Monkey Cycles"
+  },
+  "width": 520,
+  "height": 650,
+  "projection": {
+    "type": "mercator",
+    "scale": 4400,
+    "center": [-4, 57],
+    "translate": [260, 330]
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/jhellingsdata/RADataHub/refs/heads/main/MappingWorkshop/geo_data/scotland.topojson",
+        "format": {"type": "topojson", "feature": "data"}
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#f2f2f2",
+        "stroke": "white",
+        "strokeWidth": 1
+      }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/KartikeeE/KartikeeE.github.io/main/data/cc7/CC7_veloboxes_Scotland.csv"
+      },
+      "mark": {
+        "type": "circle",
+        "color": "#1f78b4",
+        "opacity": 0.75,
+        "size": 50,
+        "stroke": "white",
+        "strokeWidth": 0.5
+      },
+      "encoding": {
+        "longitude": {"field": "Longitude", "type": "quantitative"},
+        "latitude": {"field": "Latitude", "type": "quantitative"},
+        "tooltip": [
+          {"field": "Location", "type": "nominal"},
+          {"field": "City", "type": "nominal"},
+          {"field": "Postcode", "type": "nominal"}
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {"city": "Glasgow", "lat": 55.8642, "lon": -4.2518},
+          {"city": "Edinburgh", "lat": 55.9533, "lon": -3.1883},
+          {"city": "Aberdeen", "lat": 57.1497, "lon": -2.0943},
+          {"city": "Dundee", "lat": 56.462, "lon": -2.9707},
+          {"city": "Inverness", "lat": 57.4778, "lon": -4.2247}
+        ]
+      },
+      "mark": {
+        "type": "circle",
+        "color": "#fc149c",
+        "size": 60,
+        "stroke": "white",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "longitude": {"field": "lon", "type": "quantitative"},
+        "latitude": {"field": "lat", "type": "quantitative"},
+        "tooltip": [{"field": "city", "type": "nominal", "title": "City"}]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {"city": "Glasgow", "lat": 55.8642, "lon": -4.2518},
+          {"city": "Edinburgh", "lat": 55.9533, "lon": -3.1883},
+          {"city": "Aberdeen", "lat": 57.1497, "lon": -2.0943},
+          {"city": "Dundee", "lat": 56.462, "lon": -2.9707},
+          {"city": "Inverness", "lat": 57.4778, "lon": -4.2247}
+        ]
+      },
+      "mark": {"type": "text", "fontSize": 14, "fontWeight": "bold", "dy": -12},
+      "encoding": {
+        "longitude": {"field": "lon", "type": "quantitative"},
+        "latitude": {"field": "lat", "type": "quantitative"},
+        "text": {"field": "city", "type": "nominal"}
+      }
+    }
+  ],
+  "config": {"title": {"subtitlePadding": 8}, "view": {"stroke": null}}
+}

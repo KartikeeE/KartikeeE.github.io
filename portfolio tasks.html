@@ -107,7 +107,7 @@ The final URL is https://api.worldbank.org/v2/country/IND/indicator/FP.CPI.TOTL.
     
   </section>
   <section>
-    <h2>CC5.2: Inflation rates: BRICS + US, UK, Indonesia (2015–2024)</h2>
+<h2>CC5.2: Inflation rates: BRICS + US, UK, Indonesia (2015–2024)</h2>
 
  <p style="color: black; font-weight: 400;font-size:larger;">
                 
@@ -126,77 +126,55 @@ The data is scraped from the Wikipedia page on inflation rates by country. The d
 <section> 
   <h2>CC6 – Loops dashboard:
   <a href="cc6_dashboard.html" target="_blank">Six India macro indicators (looped dashboard)</a>
-
 </h2>
-       </section>
+ </section>
 
 
 
+<section> 
+  <h2>CC7: Maps</h2>
+  
+   <p style="color: black; font-weight: 400;font-size:larger;">
+The below map indicates the locations of the Veloboxes in all of Scotland. The data was obtained from Open Data Scotland, and layered with a preexisitng map of Scotland. 
+</p>
+    <figure id="Location9"></figure>
+
+
+<p style="color: black; font-weight: 400;font-size:larger;">
+The map below is a choropleth map of Wales, showing the population density of each of the counties. The data was obtained from the Office for National Statistics (ONS) and layered with a preexisting map of Wales. 
+</p>
+
+    <figure id="Location10"></figure>
 
 
 
+    </section>
+<script>
+  const figure_1_spec = "Bank of England rates.json";
+  const figure_2_spec = "sugr tax bigger.json";
+  const figure_3_spec = "Unemployment rate IND.json";
+  const figure_4_spec = "phone subscribers IND.json";
+  const figure_5_spec = "IndiaGDP-trillions.json";
+  const figure_6_spec = "poverty share India.json";
+  const figure_7_spec = "CC4 replicated chart.json";
+  const figure_8_spec = "CC5 inflation API IND WB.json";
+const cc5_2_inflation_spec = "cc5_2_inflation_chart.json";
+const cc7_scotland_map_spec = "cc7_scotland_coordinates.json";
+const cc7_wales_map_spec = "cc7_wales_population.json";
 
-  <script>
-    const figure_1_spec = "Bank of England rates.json";
-    const figure_2_spec = "sugr tax bigger.json";
-    const figure_3_spec = "Unemployment rate IND.json";
-    const figure_4_spec = "phone subscribers IND.json";
-    const figure_5_spec = "IndiaGDP-trillions.json";
-    const figure_6_spec = "poverty share India.json";
-    const figure_7_spec = "CC4 replicated chart.json";
-    const figure_8_spec = "CC5 inflation API IND WB.json";
-    const inflation_spec =
+  vegaEmbed("#Location1", figure_1_spec, { actions: false });
+  vegaEmbed("#Location2", figure_2_spec, { actions: false });
+  vegaEmbed("#Location3", figure_3_spec, { actions: false });
+  vegaEmbed("#Location4", figure_4_spec, { actions: false });
+  vegaEmbed("#Location5", figure_5_spec, { actions: false });
+  vegaEmbed("#Location6", figure_6_spec, { actions: false });
+  vegaEmbed("#Location7", figure_7_spec, { actions: false });
+  vegaEmbed("#Location8", figure_8_spec, { actions: false });
+  vegaEmbed("#CC5_2_inflation_brics_plus_all_years", cc5_2_inflation_spec, { actions: false });
+  vegaEmbed("#Location9", cc7_scotland_map_spec, { actions: false });
+  vegaEmbed("#Location10", cc7_wales_map_spec, { actions: false });
+</script>
 
-
-    {
-  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-  "width": 800,
-    "height": 600, 
-  "data": {
-    "url": "CC5_2_inflation_brics_plus_all_years.json"
-  },
-  "mark": {
-    "type": "line",
-    "point": true
-  },
-  "encoding": {
-    "x": {
-      "field": "Year",
-      "type": "quantitative",
-      "title": "Year",
-      "axis": { "format": "d", "tickMinStep": 1 }
-    },
-    "y": {
-      "field": "Inflation",
-      "type": "quantitative",
-      "title": "Annual inflation rate (%)"
-    },
-    "color": {
-      "field": "Country",
-      "type": "nominal",
-      "legend": { "title": "Country" }
-    },
-    "tooltip": [
-      { "field": "Country", "type": "nominal" },
-      { "field": "Year", "type": "quantitative", "format": "d" },
-      { "field": "Inflation", "type": "quantitative" }
-    ]
-  }
-}
-
-
-
-
-    vegaEmbed("#Location1", figure_1_spec, { actions: false });
-    vegaEmbed("#Location2", figure_2_spec, { actions: false });
-    vegaEmbed("#Location3", figure_3_spec, { actions: false });
-    vegaEmbed("#Location4", figure_4_spec, { actions: false });
-    vegaEmbed("#Location5", figure_5_spec, { actions: false });
-    vegaEmbed("#Location6", figure_6_spec, { actions: false });
-    vegaEmbed("#Location7", figure_7_spec, { actions: false });
-    vegaEmbed("#Location8", figure_8_spec, { actions: false });
-    vegaEmbed("#CC5_2_inflation_brics_plus_all_years", inflation_spec);
-
-  </script>
+  
 </body>
 </html>
