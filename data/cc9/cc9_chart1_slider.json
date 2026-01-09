@@ -21,14 +21,22 @@
     { "calculate": "toNumber(datum.date)", "as": "year" },
     { "filter": "datum.year >= minYear" }
   ],
-  "mark": { "type": "line", "point": true },
+  "mark": { "type": "line", 
+  "point": {"filled": true,
+  "color" :"plum", 
+  "size": 40}
+  
+   },
   "encoding": {
     "x": { "field": "year", "type": "quantitative", "title": "Year" },
-    "y": { "field": "value", "type": "quantitative", "title": "Life expectancy (years)" },
+    "y": { "field": "value", 
+    "type": "quantitative", 
+    "title": "Life expectancy (years)", 
+    "scale": {"domain":[50, 75]}
+    },
     "tooltip": [
       { "field": "year", "type": "quantitative", "title": "Year" },
       { "field": "value", "type": "quantitative", "title": "Life expectancy" }
     ]
   }
 }
-
