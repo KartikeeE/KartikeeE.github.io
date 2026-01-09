@@ -1,0 +1,79 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "title": "India: Select an indicator (dropdown)",
+  "width": 600,
+  "height": 400,
+  "data": {
+    "sequence": { "start": 1960, "stop": 2025, "step": 1, "as": "year" }
+  },
+  "params": [
+    {
+      "name": "selectedIndicator",
+      "value": "lifeexp",
+      "bind": {
+        "input": "select",
+        "options": ["lifeexp", "gdp", "hexp"],
+        "labels": [
+          "Life expectancy (years)",
+          "GDP per capita (current US$)",
+          "Health expenditure per capita (current US$)"
+        ],
+        "name": "Indicator: "
+      }
+    }
+  ],
+  "transform": [
+    { "calculate": "toString(datum.year)", "as": "date" },
+
+    {
+      "lookup": "date",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/KartikeeE/KartikeeE.github.io/main/data/cc9/india_life_expectancy.json",
+          "format": { "type": "json", "property": "1" }
+        },
+        "key": "date",
+        "fields": ["value"]
+      },
+      "as": ["lifeexp"]
+    },
+
+    {
+      "lookup": "date",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/KartikeeE/KartikeeE.github.io/main/data/cc9/india_gdp_per_capita.json",
+          "format": { "type": "json", "property": "1" }
+        },
+        "key": "date",
+        "fields": ["value"]
+      },
+      "as": ["gdp"]
+    },
+
+    {
+      "lookup": "date",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/KartikeeE/KartikeeE.github.io/main/data/cc9/india_health_exp_pc.json",
+          "format": { "type": "json", "property": "1" }
+        },
+        "key": "date",
+        "fields": ["value"]
+      },
+      "as": ["hexp"]
+    },
+
+    { "calculate": "datum[selectedIndicator]", "as": "chosenValue" },
+    { "filter": "datum.chosenValue != null" }
+  ],
+  "mark": { "type": "line", "point": true },
+  "encoding": {
+    "x": { "field": "year", "type": "quantitative", "title": "Year" },
+    "y": { "field": "chosenValue", "type": "quantitative", "title": "Value (depends on indicator)" },
+    "tooltip": [
+      { "field": "year", "type": "quantitative", "title": "Year" },
+      { "field": "chosenValue", "type": "quantitative", "title": "Selected value" }
+    ]
+  }
+}
