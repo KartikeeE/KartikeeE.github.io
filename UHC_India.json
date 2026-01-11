@@ -1,0 +1,43 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Universal Health Coverage (UHC) Service Coverage Index — India",
+    "subtitle": [
+      "Source: WHO / World Bank (Data360)",
+      "Downloaded from Data360, cleaned and hosted on GitHub"
+    ]
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/KartikeeE/KartikeeE.github.io/main/data/project/UHC_SCI.csv",
+    "format": {"type": "csv"}
+  },
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "ordinal",
+      "title": "Year",
+      "axis": {"labelAngle": 0}
+    },
+    "y": {
+      "field": "value",
+      "type": "quantitative",
+      "title": "UHC service coverage index (0–100)",
+      "scale": {"zero": false},
+      "axis": {"grid": true}
+    },
+    "tooltip": [
+      {"field": "year", "type": "ordinal", "title": "Year"},
+      {"field": "value", "type": "quantitative", "title": "UHC index (0–100)"}
+    ]
+  },
+  "layer": [
+    {"mark": {"type": "line", "strokeWidth": 2, "color": "#28a113"}},
+    {"mark": {"type": "point", "filled": true, "size": 40}}
+  ],
+  "width": 720,
+  "height": 320,
+  "config": {
+    "axis": {"labelFontSize": 12, "titleFontSize": 13},
+    "title": {"fontSize": 16, "subtitleFontSize": 11}
+  }
+}

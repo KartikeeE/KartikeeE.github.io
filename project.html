@@ -1,66 +1,156 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Project | PP434</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Project | Socio-economic determinants of health in India</title>
 
-  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <link rel="stylesheet" href="style.css" />
 
-  <style>
-    body { font-family: Arial, sans-serif; max-width: 1100px; margin: 30px auto; padding: 0 20px; line-height: 1.5; }
-    h1 { margin: 0 0 10px 0; }
-    .nav { margin-bottom: 18px; }
-    .nav a { margin-right: 14px; }
-    .meta { color: #444; margin: 0 0 22px 0; }
-    h2 { margin-top: 26px; }
-    figure { margin: 14px 0 28px 0; }
-  </style>
-</head>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  </head>
 
-<body>
-  <div class="nav">
-    <a href="index.html">Home</a>
-    <a href="portfolio.html">Portfolio</a>
-  </div>
+  <body>
+    <header class="page-header">
+      <h1>Socio-economic determinants of health in India</h1>
+      <p class="subtitle">
+        An interactive analysis of how economic development, health system capacity, and basic services relate to long-run health outcomes in India.
+      </p>
+      <nav class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="project.html" aria-current="page">Project</a>
+      </nav>
+    </header>
 
-  <h1>Inflation and Cost of Living: India in International Context</h1>
-  <p class="meta">PP434 Final Project — 5–8 visualisations (≤800 words)</p>
+    <main class="page-content">
+      <section id="aims" class="content-section">
+        <h2>Aims</h2>
+        <p>
+          This project examines how changes in India’s life expectancy are associated with key socio-economic and health system indicators over time.
+        </p>
+      </section>
 
-  <h2>Aims</h2>
-  <p>
-    This project examines how inflation has evolved in India compared with selected peer economies and what this implies for cost-of-living pressures and inflation volatility.
-  </p>
+      <section id="data" class="content-section">
+        <h2>Data</h2>
+        <p>
+          Data are sourced from World Bank/WHO indicators (via World Bank Data360 and WDI). Unit of analysis: India, country-year.
+        </p>
+      </section>
 
-  <h2>Data</h2>
-  <p>
-    Data are retrieved via the World Bank Indicators API using country codes and indicator codes. This approach supports replication and enables updates when the underlying source is refreshed.
-  </p>
+      <section id="visuals" class="content-section">
+        <h2>Visual analysis</h2>
 
-  <h2>Tools and Analytical Challenges</h2>
-  <p>
-    Charts are built in Vega-Lite and embedded using vegaEmbed. The workflow handles missing values through filtering and uses consistent transformations so time-series can be compared across countries.
-  </p>
+        <section class="viz-block">
+          <h3>Chart 1: Life expectancy in India (interactive year slider)</h3>
+          <div id="location1"></div>
+          <p class="source">
+            <strong>Data source:</strong> World Bank (WDI) / Data360. <span class="source-link-placeholder"></span>
+          </p>
+        </section>
 
-  <h2>Visualisations</h2>
-  <figure id="P1"></figure>
-  <figure id="P2"></figure>
-  <figure id="P3"></figure>
-  <figure id="P4"></figure>
-  <figure id="P5"></figure>
+        <section class="viz-block">
+          <h3>Chart 2: India over time (interactive indicator selector)</h3>
+          <div id="location2"></div>
+          <p class="source">
+            <strong>Data source:</strong> World Bank (WDI) / Data360. <span class="source-link-placeholder"></span>
+          </p>
+        </section>
 
-  <h2>Conclusions</h2>
-  <p>
-    Comparative evidence suggests inflation dynamics differ across economies in both level and volatility, motivating further work on drivers such as food prices, energy shocks, and exchange-rate pass-through.
-  </p>
+        <section class="viz-block">
+          <h3>Chart 3: GDP per capita</h3>
+          <div id="location3"></div>
+          <p class="source">
+            <strong>Data source:</strong> World Bank. <span class="source-link-placeholder"></span>
+          </p>
+        </section>
 
-  <script>
-    // Add your project charts here once the JSON files exist in the repo root.
-    // Example:
-    // vegaEmbed("#P1", "project_chart_1.json", { actions: false });
-    // vegaEmbed("#P2", "project_chart_2.json", { actions: false });
-  </script>
-</body>
+        <section class="viz-block">
+          <h3>Visual 4: Universal Health Care</h3>
+          <div id="location4"></div>
+          <p class="source">
+            <strong>Data source:</strong> World Bank <span class="source-link-placeholder"></span>
+          </p>
+        </section>
+
+        <section class="viz-block">
+          <h3>Visual 5 — Financial protection (out-of-pocket health expenditure)</h3>
+          <div id="location5"></div>
+          <p class="source">
+            <strong>Data source:</strong> World Bank / WHO (via Data360). <span class="source-link-placeholder"></span>
+          </p>
+        </section>
+
+        <section class="viz-block">
+          <h3>Visual 6 — Health workforce capacity (doctors per 1,000 people)</h3>
+          <div id="location6"></div>
+          <p class="source">
+            <strong>Data source:</strong> World Bank (WDI) / Data360. <span class="source-link-placeholder"></span>
+          </p>
+        </section>
+
+        <section class="viz-block">
+          <h3>Visual 7 — Machine learning synthesis (clustering)</h3>
+          <div id="location7"></div>
+          <p class="source">
+            <strong>Data source:</strong> World Bank/WHO indicators (via Data360/WDI), processed in Python (sklearn). <span class="source-link-placeholder"></span>
+          </p>
+        </section>
+      </section>
+
+      <section id="tools" class="content-section">
+        <h2>Tools and methods</h2>
+        <p>
+          Data access via APIs; cleaning and standardisation in Python; visualisation in Vega-Lite; clustering using sklearn.
+        </p>
+      </section>
+
+      <section id="conclusions" class="content-section">
+        <h2>Conclusions</h2>
+        <p>
+          Summary findings and implications will be added after finalising the visual evidence.
+        </p>
+      </section>
+    </main>
+
+    <footer class="page-footer">
+      <p>AI Statement: ChatGPT was used for troubleshooting, data cleaning, and visualisation design.</p>
+    </footer>
+
+
+    <script>
+      const charts = [
+       { location: "location3", spec: "IndiaGDP-trillions.json"},
+        { location: "location4", spec: "UHC_India.json" },
+        { location: "location5", spec: "Out-of-pocket health expenditure India.json" },
+        { location: "location6", spec: "Doctors per 1000 people India.json" },
+        { location: "location7", spec: "CC7 clustering India.json" }
+      ];
+      
+      vegaEmbed("#location1","https://raw.githubusercontent.com/KartikeeE/KartikeeE.github.io/refs/heads/main/data/cc9/cc9_chart1_slider.json",);
+      vegaEmbed("#location2","https://raw.githubusercontent.com/KartikeeE/KartikeeE.github.io/main/data/cc9/cc9_chart2_dropdown.json?v=2");
+      vegaEmbed("#location3", "UHC_India.json ", { actions: false });
+       
+
+
+       
+
+
+
+
+
+
+
+
+
+
+      
+
+      charts.forEach(c => {
+        vegaEmbed(`#${c.location}`, c.spec, { actions: false }).catch(() => {});
+      });
+    </script>
+  </body>
 </html>
