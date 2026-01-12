@@ -1,0 +1,21 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 520,
+  "height": 420,
+  "data": {
+    "url": "https://raw.githubusercontent.com/KartikeeE/KartikeeE.github.io/refs/heads/main/data/cc10_clusters_2022.json"
+  },
+  "mark": { "type": "point", "filled": true, "size": 140 },
+  "encoding": {
+    "x": { "field": "pc1", "type": "quantitative", "title": "PC1" },
+    "y": { "field": "pc2", "type": "quantitative", "title": "PC2" },
+    "color": { "field": "cluster", "type": "nominal", "title": "Cluster" },
+    "tooltip": [
+      { "field": "country", "type": "nominal", "title": "Country" },
+      { "field": "cluster", "type": "nominal", "title": "Cluster" }
+    ]
+  },
+  "config": {
+    "view": { "stroke": null }
+  }
+}
