@@ -9,12 +9,85 @@
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-  </head>
+  
+<style>
+ body {
+  margin: 0;
+  padding: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.6;
+  background-color: #f6f1ee;
+}
 
-  <body>
+
+  .container {
+   max-width: 1200px;
+  margin: 40px auto;
+  padding: 40px 60px;
+  background-color: #ffffff;
+  }
+
+  .site-nav {
+    margin-top: 10px;
+    margin-bottom: 30px;
+  }
+
+  .site-nav a {
+    margin-right: 14px;
+    text-decoration: none;
+  }
+
+  h1, h2, h3 {
+    text-align: center;
+    margin-top: 34px;
+    margin-bottom: 14px;
+  }
+
+  p {
+    text-align: justify;
+    margin: 0 0 18px 0;
+    font-size: 1.05rem;
+  }
+
+  .viz-block, .chart-block {
+    margin: 28px 0 46px 0;
+  }
+
+  .source {
+    font-size: 0.95rem;
+    margin-top: 10px;
+  }
+
+  figure, .chart {
+    margin: 18px 0 0 0;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 18px 0;
+  }
+
+  .divider {
+    border-top: 1px solid #e5e5e5;
+    margin: 22px 0;
+  }
+
+  footer {
+    margin-top: 50px;
+    padding-top: 18px;
+    border-top: 1px solid #e5e5e5;
+    font-size: 0.95rem;
+  }
+</style>
+</head>
+
+ <body>
+  <div class="container">
+  
     <header class="page-header">
       <h1>Long term determinants of health outcomes in India. </h1>
-      <p style="color: black; font-weight: 600;font-size:larger;">
 
 </p>
       <nav class="site-nav">
@@ -27,7 +100,6 @@
     <main class="page-content">
       <section id="aims" class="content-section">
         <h2>Aim</h2>
-        <p style="color: black; font-weight: 400;font-size:larger;">
 The project examines a combination of economic and infrastructural variables that determine India's health outcomes, as measured by life expectancy.<br>
 
 The project explores how improvements in social and economic determinants of health visibly correlate with increased life expectancy in India, using open-access data from the World Bank.
@@ -37,7 +109,6 @@ The project explores how improvements in social and economic determinants of hea
 
       <section id="data" class="content-section">
         <h2>Data</h2>
-        <p style="color: black; font-weight: 400;font-size:larger;">
 All data was obtained from open and publicly available sources. The primary source of data was the World Bank’s Development Indicators (WDI). <br>
 <br>
 The indicators this project looks at are:<br>
@@ -90,7 +161,7 @@ The data was accessed in two ways, direct API access and automated batch downloa
 
       
 
-    <section>
+    <section class="viz-block">
  <h3>Chart 5: Life Expectancy and GDP per capita - Countries Comparison</h3>
       <div id="location5"></div>
 
@@ -102,7 +173,6 @@ The data was accessed in two ways, direct API access and automated batch downloa
 
 <section id="data" class="content-section">
         <h2>Tools</h2>
-        <p style="color: black; font-weight: 400;font-size:larger;">
 Visual Studio Code, Python, Google Colab, Vega-Lite, GitHub.
      </p>
 </section> 
@@ -110,7 +180,6 @@ Visual Studio Code, Python, Google Colab, Vega-Lite, GitHub.
 
 <section id="data" class="content-section">
         <h2>Data cleaning and analysis</h2>
-        <p style="color: black; font-weight: 400;font-size:larger;">
 Frequent challenges faced in the project included identifying variables with consistent data in India, for example, inconsistent coverage across time frames, and large CSV files of raw data.<br>
 
 These challenges were addressed by choosing variables that were available and relevant to the topic, changing the examined time frames for all data for consistency, and cleaning the CSV data sets to keep only relevant data.<br>
@@ -123,7 +192,6 @@ Data visualisation was done using Vega-lite. Interactive elements were added to 
 </section> 
       <section id="conclusions" class="content-section">
         <h2>Conclusions</h2>
-               <p style="color: black; font-weight: 400;font-size:larger;">
 
 The overall long-term trends indicate that improvements in socio-economic factors that determine health improve health outcomes in India.<br>
 
@@ -167,7 +235,8 @@ A final cross-country comparison shows where India stands in its relationship be
 </script>
 
      
-
+  </div>
     
   </body>
 </html>
+ 

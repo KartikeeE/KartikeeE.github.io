@@ -5,33 +5,90 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Home | PP434</title>
   <style>
-    body { font-family: Arial, sans-serif; max-width: 980px; margin: 40px auto; padding: 0 20px; line-height: 1.5; }
-    h1 { margin: 0 0 8px 0; }
-    .subtle { color: #444; margin: 0 0 18px 0; }
-    .links a { display: inline-block; margin-right: 14px; }
-    .card { border: 1px solid #ddd; border-radius: 10px; padding: 18px; margin-top: 18px; }
-    .card h2 { margin-top: 0; }
-    .cta a { font-weight: 700; }
+   body {
+  margin: 0;
+  padding: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.6;
+  background-color: #f6f1ee;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 40px 60px;
+}
+
+.site-nav {
+  margin-bottom: 28px;
+}
+
+.site-nav a {
+  margin-right: 16px;
+  text-decoration: none;
+}
+
+h1, h2 {
+  text-align: center;
+  margin-top: 18px;
+  margin-bottom: 14px;
+}
+
+.subtle {
+  text-align: center;
+  margin: 0 0 22px 0;
+}
+
+.card {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 14px;
+  padding: 20px 22px;
+  margin: 18px 0;
+}
+
+.card h2 {
+  margin-top: 0;
+  text-align: left;
+}
+
+.card p {
+  margin: 0 0 12px 0;
+  text-align: justify;
+}
+
+.cta a {
+  font-weight: 700;
+}
+
   </style>
 </head>
 <body>
-  <h1>Candidate Number: </h1>
+    <div class="container">
+
+  <h1>Name: Kartikee Elkunchwar </h1>
   <p class="subtle">PP434 — Automated Data Visualisation for Policymaking (Autumn Term 2025/26)</p>
 
-  <div class="links">
-    <a href="https://www.linkedin.com/in/kartikee-elkunchwar/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+ 
+    <nav class="site-nav">
+  <a href="index.html" aria-current="page">Home</a>
+  <a href="portfolio.html">Portfolio</a>
+  <a href="project.html">Project</a>
+  <a href="https://github.com/KartikeeE" target="_blank" rel="noopener noreferrer">GitHub</a>
+</nav>
+
     <a href="https://github.com/KartikeeE" target="_blank" rel="noopener noreferrer">GitHub</a>
-  </div>
+  
 
   <div class="card">
     <h2>Portfolio</h2>
     <p>Coding Challenges (CC1–CC10).</p>
-    <p class="cta"><a href="portfolio tasks.html">Open Portfolio</a></p>
+    <p class="cta"><a href="portfolio.html">Open Portfolio</a></p>
   </div>
 
   <div class="card">
     <h2>Final Project</h2>
-    <p>Project Name: Inflation and Cost of Living: India in International Context</p>
+    <p>Project Name: Long Term determinants of health outcomes in India</p>
     <p class="cta"><a href="project.html">Open Project</a></p>
   </div>
 </body>
