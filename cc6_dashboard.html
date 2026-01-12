@@ -24,16 +24,19 @@
     }
   </style>
 </head>
+
 <body>
 
   <h2>India: Six macro time series</h2>
-<p>
-  Colab notebook: <a href="https://colab.research.google.com/drive/13nbZK0Cbia04mykoi5_Y9u0NbBPQJI-F?usp=sharing" target="_blank">link</a>
-</p>
 
   <p>
-  Description: Downloaded six World Bank India macro series via a Python loop, saved JSON to GitHub, and embedded six time-series charts via a JavaScript loop.
-</p>
+    Colab notebook:
+    <a href="https://colab.research.google.com/drive/13nbZK0Cbia04mykoi5_Y9u0NbBPQJI-F?usp=sharing" target="_blank">link</a>
+  </p>
+
+  <p>
+    Description: Downloaded six World Bank India macro series via a Python loop, saved JSON to GitHub, and embedded six time-series charts via a JavaScript loop.
+  </p>
 
   <div id="cc6Grid" class="grid"></div>
 
@@ -49,34 +52,30 @@
       { file: "ind_expo.json", label: "Exports of goods & services (current US$)" }
     ];
 
-    const baseSpecUrl = "cc6_chart.json";
+    fetch("cc6_chart.json")
+      .then(r => r.json())
+      .then(baseSpec => {
+        for (let i = 0; i < series.length; i++) {
+          const wrap = document.createElement("div");
+          wrap.className = "card";
 
-    for (let i = 0; i < series.length; i++) {
-      const wrap = document.createElement("div");
-      wrap.className = "card";
+          const t = document.createElement("div");
+          t.className = "title";
+          t.textContent = series[i].label;
 
-      const t = document.createElement("div");
-      t.className = "title";
-      t.textContent = series[i].label;
+          const holder = document.createElement("div");
+          holder.id = "chart_" + i;
 
-      const holder = document.createElement("div");
-      holder.id = "chart_" + i;
+          wrap.appendChild(t);
+          wrap.appendChild(holder);
+          document.getElementById("cc6Grid").appendChild(wrap);
 
-      wrap.appendChild(t);
-      wrap.appendChild(holder);
+          const spec = JSON.parse(JSON.stringify(baseSpec));
+          spec.data.url = base + series[i].file;
 
-      document.getElementById("cc6Grid").appendChild(wrap);
-
-      vegaEmbed("#" + holder.id, baseSpecUrl).then(res => {
-        res.view.change(
-          "source_0",
-          vega
-            .changeset()
-            .remove(() => true)
-            .insertFromUrl(base + series[i].file)
-        );
+          vegaEmbed("#" + holder.id, spec, { actions: false });
+        }
       });
-    }
   </script>
 
 </body>
