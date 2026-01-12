@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Project | Socio-economic determinants of health in India</title>
 
-    <link rel="stylesheet" href="style.css" />
 
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
@@ -14,10 +13,10 @@
 
   <body>
     <header class="page-header">
-      <h1>Socio-economic determinants of health in India</h1>
-      <p class="subtitle">
-        An interactive analysis of how economic development, health system capacity, and basic services relate to long-run health outcomes in India.
-      </p>
+      <h1>Long term determinants of health outcomes in India. </h1>
+      <p style="color: black; font-weight: 600;font-size:larger;">
+
+</p>
       <nav class="site-nav">
         <a href="index.html">Home</a>
         <a href="portfolio.html">Portfolio</a>
@@ -27,24 +26,38 @@
 
     <main class="page-content">
       <section id="aims" class="content-section">
-        <h2>Aims</h2>
-        <p>
-          This project examines how changes in India’s life expectancy are associated with key socio-economic and health system indicators over time.
+        <h2>Aim</h2>
+        <p style="color: black; font-weight: 400;font-size:larger;">
+The project examines a combination of economic and infrastructural variables that determine India's health outcomes, as measured by life expectancy.<br>
+
+The project explores how improvements in social and economic determinants of health visibly correlate with increased life expectancy in India, using open-access data from the World Bank.
+
         </p>
       </section>
 
       <section id="data" class="content-section">
         <h2>Data</h2>
-        <p>
-          Data are sourced from World Bank/WHO indicators (via World Bank Data360 and WDI). Unit of analysis: India, country-year.
+        <p style="color: black; font-weight: 400;font-size:larger;">
+All data was obtained from open and publicly available sources. The primary source of data was the World Bank’s Development Indicators (WDI). <br>
+<br>
+The indicators this project looks at are:<br>
+<br>
+1.	Health outcome: Life Expectancy at Birth (years) <br>
+2.	GDP per capital (USD)<br>
+3.	Health expenditure per capital (USD) <br>
+4.	Universal Health Coverage Service Index (0-100) <br>
+5.	Out of pocket health expenditure (% of current health expenditure)<br>
+6.	Basic sanitation access (% of the population) <br>
+<br>
+The data was accessed in two ways, direct API access and automated batch downloads. For the direct API access method, raw data was obtained from the WDI URLs and imported into a JSON file. It was then embedded into the Vega-Lite editor examples. The automated batch download method was used in Python to loop through indicators, combine datasets, and download and store the data in tidy, long-form.
         </p>
-      </section>
+</section>
+    
 
-      <section id="visuals" class="content-section">
+<section id="visuals" class="content-section">
         <h2>Visual analysis</h2>
-
         <section class="viz-block">
-          <h3>Chart 1: Life expectancy in India (interactive year slider)</h3>
+          <h3>Chart 1: Life expectancy in India</h3>
           <div id="location1"></div>
           <p class="source">
             <strong>Data source:</strong> World Bank (WDI) / Data360. <span class="source-link-placeholder"></span>
@@ -52,7 +65,7 @@
         </section>
 
         <section class="viz-block">
-          <h3>Chart 2: India over time (interactive indicator selector)</h3>
+          <h3>Chart 2: India over time: Life Expectancy, GDP per Capita, Health Expenditure</h3>
           <div id="location2"></div>
           <p class="source">
             <strong>Data source:</strong> World Bank (WDI) / Data360. <span class="source-link-placeholder"></span>
@@ -60,7 +73,7 @@
         </section>
 
         <section class="viz-block">
-          <h3>Chart 3: GDP per capita</h3>
+          <h3>Chart 3: Universal Health Coverage</h3>
           <div id="location3"></div>
           <p class="source">
             <strong>Data source:</strong> World Bank. <span class="source-link-placeholder"></span>
@@ -68,37 +81,57 @@
         </section>
 
         <section class="viz-block">
-          <h3>Visual 4: Universal Health Care</h3>
+          <h3>Visual 4: Out of pocket health expenditure</h3>
           <div id="location4"></div>
           <p class="source">
             <strong>Data source:</strong> World Bank <span class="source-link-placeholder"></span>
           </p>
         </section>
 
-        <section class="viz-block">
-          <h3>Visual 5 — Financial protection (out-of-pocket health expenditure)</h3>
-          <div id="location5"></div>
-          <p class="source">
-            <strong>Data source:</strong> World Bank. <span class="source-link-placeholder"></span>
-          </p>
-        </section>
+      
 
-    
+    <section>
+ <h3>Chart 5: Life Expectancy and GDP per capita - Countries Comparison</h3>
+      <div id="location5"></div>
+
+    </section>
 
         
       </section>
 
-      <section id="tools" class="content-section">
-        <h2>Tools and methods</h2>
-        <p>
-          Data access via APIs; cleaning and standardisation in Python; visualisation in Vega-Lite; clustering using sklearn.
-        </p>
-      </section>
 
+<section id="data" class="content-section">
+        <h2>Tools</h2>
+        <p style="color: black; font-weight: 400;font-size:larger;">
+Visual Studio Code, Python, Google Colab, Vega-Lite, GitHub.
+     </p>
+</section> 
+
+
+<section id="data" class="content-section">
+        <h2>Data cleaning and analysis</h2>
+        <p style="color: black; font-weight: 400;font-size:larger;">
+Frequent challenges faced in the project included identifying variables with consistent data in India, for example, inconsistent coverage across time frames, and large CSV files of raw data.<br>
+
+These challenges were addressed by choosing variables that were available and relevant to the topic, changing the examined time frames for all data for consistency, and cleaning the CSV data sets to keep only relevant data.<br>
+
+For data analysis, Python was used to clean, reshape, and standardise the data. Pandas was used to filter years, drop missing values, and convert the datasets to tidy, long-form data to make them consistent for use across charts.<br>
+
+Data visualisation was done using Vega-lite. Interactive elements were added to allow the viewer to examine changes in the data over time (life expectancy) and to compare different variables over time (life expectancy, GDP per capita, and health expenditure per capita). For charts such as life expectancy, the axes were adjusted to start at 50 years instead of 0 to ensure the data was well represented and the long-term trends were visible.<br>
+
+        </p>
+</section> 
       <section id="conclusions" class="content-section">
         <h2>Conclusions</h2>
-        <p>
-          Summary findings and implications will be added after finalising the visual evidence.
+               <p style="color: black; font-weight: 400;font-size:larger;">
+
+The overall long-term trends indicate that improvements in socio-economic factors that determine health improve health outcomes in India.<br>
+
+As GDP per capita and health expenditure per capita increased significantly, so did life expectancy.<br>
+
+Similarly, along with these variables, the Universal Health Coverage significantly increased, while out-of-pocket health expenditures dropped.<br>
+
+A final cross-country comparison shows where India stands in its relationship between life expectancy and GDP per capita.<br>
         </p>
       </section>
     </main>
@@ -109,36 +142,32 @@
 
 
     <script>
-      const charts = [
-       { location: "location3", spec: "IndiaGDP-trillions.json"},
-        { location: "location4", spec: "UHC_India.json" },
-        { location: "location5", spec: "OOP_India.json" },
-      ];
-      
-      vegaEmbed("#location1","https://raw.githubusercontent.com/KartikeeE/KartikeeE.github.io/refs/heads/main/data/cc9/cc9_chart1_slider.json",);
-      vegaEmbed("#location2","https://raw.githubusercontent.com/KartikeeE/KartikeeE.github.io/main/data/cc9/cc9_chart2_dropdown.json?v=2");
-      vegaEmbed("#location3", "UHC_India.json ", { actions: false });
-      vegaEmbed("#location4", "OOP_India.json ", { actions: false });
+  vegaEmbed(
+    "#location1",
+    "https://raw.githubusercontent.com/KartikeeE/KartikeeE.github.io/main/data/cc9/cc9_chart1_slider.json",
+    { actions: false }
+  );
 
-       
+  vegaEmbed(
+    "#location2",
+    "https://raw.githubusercontent.com/KartikeeE/KartikeeE.github.io/main/data/cc9/cc9_chart2_dropdown.json?v=2",
+    { actions: false }
+  );
 
+  vegaEmbed("#location3", "UHC_India.json", { actions: false });
+  vegaEmbed("#location4", "OOP_India.json", { actions: false });
 
-       
+  const charts = [
+    { location: "location5", spec: "lifeexp_gdp.json" },
+  ];
 
+  charts.forEach(c => {
+    vegaEmbed(`#${c.location}`, c.spec, { actions: false }).catch(err => console.error(err));
+  });
+</script>
 
+     
 
-
-
-
-
-
-
-
-      
-
-      charts.forEach(c => {
-        vegaEmbed(`#${c.location}`, c.spec, { actions: false }).catch(() => {});
-      });
-    </script>
+    
   </body>
 </html>
