@@ -1,0 +1,47 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "title": {
+    "text": "Out-of-pocket health expenditure in India",
+    "subtitle": [
+      "Out-of-pocket expenditure (% of current health expenditure)",
+      "Source: World Bank"
+    ]
+  },
+  "data": {
+    "url": "https://api.worldbank.org/v2/country/IND/indicator/SH.XPD.OOPC.CH.ZS?format=json&per_page=20000",
+    "format": {"type": "json", "property": "1"}
+  },
+  "transform": [
+    {"filter": "datum.value != null"},
+    {"calculate": "toNumber(datum.date)", "as": "year"}
+  ],
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "quantitative",
+      "title": "Year",
+      "axis": {"grid": false}
+    },
+    "y": {
+      "field": "value",
+      "type": "quantitative",
+      "title": "Out-of-pocket expenditure (% of current health expenditure)",
+      "scale": {"zero": false},
+      "axis": {"grid": false}
+    },
+    "tooltip": [
+      {"field": "year", "type": "quantitative", "title": "Year"},
+      {"field": "value", "type": "quantitative", "title": "Out-of-pocket (%)"}
+    ]
+  },
+  "layer": [
+    {"mark": {"type": "line", "strokeWidth": 2, "color": "#d62728"}},
+    {"mark": {"type": "point", "filled": true, "size": 40, "color": "#d62728"}}
+  ],
+  "width": 720,
+  "height": 320,
+  "config": {
+    "axis": {"labelFontSize": 12, "titleFontSize": 13},
+    "title": {"fontSize": 16, "subtitleFontSize": 11}
+  }
+}

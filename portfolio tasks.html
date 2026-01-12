@@ -75,14 +75,14 @@
   <section>
     <h2>CC4: Replication</h2>
    
-   <p style="color: black; font-weight: 400;font-size:larger;">
+   <p style="color: black; font-weight: 400;font-size:large;">
             The image below is one of the used as a <a href="https://data.europa.eu/apps/data-visualisation-guide/guidelines-for-pie-charts">guide to making pie charts </a> on The official <a href="https://data.europa.eu/apps/data-visualisation-guide/">Data Visualisation Guide</a> of the European Union.
                 The pie chart shows the statewise population of the United States in 2008-2009. <br> As clearly seen, it is not an ideal representation of data. There are too many slices, too many colours used, which makings it a bit jarring to look at. <br>
                 
 </p>   
     <img src="Pie_chart_of_US_population_by_state.png" alt="Replication source chart" width="650" />
     
-    <p style="color: black; font-weight: 400;font-size:larger;">
+    <p style="color: black; font-weight: 400;font-size:large;">
          A better way to present the data would be in a bar chart, with a scale to categorise the population. </p>
 
  <figure id="Location7"></figure>
@@ -93,7 +93,7 @@
 
     <figure id="Location8"></figure>
 
-    <p style="color: black; font-weight: 400;font-size:larger;">
+    <p style="color: black; font-weight: 400;font-size:large;">
                 
 Description:<br>
  The base URL used for the above chart is https://api.worldbank.org/v2/. <br>
@@ -109,7 +109,7 @@ The final URL is https://api.worldbank.org/v2/country/IND/indicator/FP.CPI.TOTL.
   <section>
 <h2>CC5.2: Inflation rates: BRICS + US, UK, Indonesia (2015–2024)</h2>
 
- <p style="color: black; font-weight: 400;font-size:larger;">
+ <p style="color: black; font-weight: 400;font-size:large;">
                 
 Description:<br>
 The data is scraped from the Wikipedia page on inflation rates by country. The data was cleaned and converted to tody long form,missing entries were dropped. The data was exported in json format for vega-lite. <br>
@@ -133,27 +133,40 @@ The data is scraped from the Wikipedia page on inflation rates by country. The d
 
 <section> 
   <h2>CC7: Maps</h2>
-   <p style="color: black; font-weight: 400;font-size:larger;">
+   <p style="color: black; font-weight: 400;font-size:large;">
 The below map indicates the locations of the Veloboxes in all of Scotland. The data was obtained from Open Data Scotland, and layered with a preexisitng map of Scotland. 
 </p>
     <figure id="Location9"></figure>
-<p style="color: black; font-weight: 400;font-size:larger;">
+<p style="color: black; font-weight: 400;font-size:large;">
 The map below is a choropleth map of Wales, showing the population density of each of the counties. The data was obtained from the Office for National Statistics (ONS) and layered with a preexisting map of Wales. 
 </p>
     <figure id="Location10"></figure>
     </section>
 <section>
     <h2>CC9: Interactive charts</h2>
-    <p style="color: black; font-weight: 400;font-size:larger;">
+    <p style="color: black; font-weight: 400;font-size:large;">
 Chart 1: Simple slider chart. </p>
     <div id="cc9_chart1"></div> 
-     <p style="color: black; font-weight: 400;font-size:larger;">
+     <p style="color: black; font-weight: 400;font-size:large;">
 Chart 2: Chart with 3 Indicators on India: Life expectancy, GDP per capita, and Health Expenditure per capita. </p>
     <div id="cc9_chart2"></div>  
 </section>
 
+<section>
+    <h2>CC10: Advanced visualisation</h2>
 
+   
+    
+    <p style="color: black; font-weight: 400;font-size:large;">
+    Hypothesis: The status of certain health determinants such as access to sanitation, urbanisation, out of pocket health spending, categorise countries into different clusters.<br> 
+    Conclusions: The analysis shows a division amongst countries based on their income and the status of key health factors.<br>
+     <a href="https://colab.research.google.com/drive/18GBKt9_Z64Ag_McnZfGmhjLGBdpzOK3x?usp=sharing
+" target="_blank">
+    Google Colab notebook
+  </a>
 
+    <div id="cc10Chart"></div>
+    </p>
 
 
 
@@ -184,6 +197,8 @@ const cc7_wales_map_spec = "cc7_wales_population.json";
   vegaEmbed("#Location10", cc7_wales_map_spec, { actions: false });
   vegaEmbed("#cc9_chart1","https://raw.githubusercontent.com/KartikeeE/KartikeeE.github.io/refs/heads/main/data/cc9/cc9_chart1_slider.json");
   vegaEmbed("#cc9_chart2","https://raw.githubusercontent.com/KartikeeE/KartikeeE.github.io/main/data/cc9/cc9_chart2_dropdown.json?v=2");
+  vegaEmbed('#cc10Chart', 'final_cc10_heatmap_2022.json', { actions: false });
+</script>
 
 </script>
 

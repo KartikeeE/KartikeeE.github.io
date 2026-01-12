@@ -79,25 +79,13 @@
           <h3>Visual 5 — Financial protection (out-of-pocket health expenditure)</h3>
           <div id="location5"></div>
           <p class="source">
-            <strong>Data source:</strong> World Bank / WHO (via Data360). <span class="source-link-placeholder"></span>
+            <strong>Data source:</strong> World Bank. <span class="source-link-placeholder"></span>
           </p>
         </section>
 
-        <section class="viz-block">
-          <h3>Visual 6 — Health workforce capacity (doctors per 1,000 people)</h3>
-          <div id="location6"></div>
-          <p class="source">
-            <strong>Data source:</strong> World Bank (WDI) / Data360. <span class="source-link-placeholder"></span>
-          </p>
-        </section>
+    
 
-        <section class="viz-block">
-          <h3>Visual 7 — Machine learning synthesis (clustering)</h3>
-          <div id="location7"></div>
-          <p class="source">
-            <strong>Data source:</strong> World Bank/WHO indicators (via Data360/WDI), processed in Python (sklearn). <span class="source-link-placeholder"></span>
-          </p>
-        </section>
+        
       </section>
 
       <section id="tools" class="content-section">
@@ -116,7 +104,7 @@
     </main>
 
     <footer class="page-footer">
-      <p>AI Statement: ChatGPT was used for troubleshooting, data cleaning, and visualisation design.</p>
+      <p>AI Statement: OpenAI's ChatGPT was used for troubleshooting, brainstorming, and design.</p>
     </footer>
 
 
@@ -124,14 +112,14 @@
       const charts = [
        { location: "location3", spec: "IndiaGDP-trillions.json"},
         { location: "location4", spec: "UHC_India.json" },
-        { location: "location5", spec: "Out-of-pocket health expenditure India.json" },
-        { location: "location6", spec: "Doctors per 1000 people India.json" },
-        { location: "location7", spec: "CC7 clustering India.json" }
+        { location: "location5", spec: "OOP_India.json" },
       ];
       
       vegaEmbed("#location1","https://raw.githubusercontent.com/KartikeeE/KartikeeE.github.io/refs/heads/main/data/cc9/cc9_chart1_slider.json",);
       vegaEmbed("#location2","https://raw.githubusercontent.com/KartikeeE/KartikeeE.github.io/main/data/cc9/cc9_chart2_dropdown.json?v=2");
       vegaEmbed("#location3", "UHC_India.json ", { actions: false });
+      vegaEmbed("#location4", "OOP_India.json ", { actions: false });
+
        
 
 
